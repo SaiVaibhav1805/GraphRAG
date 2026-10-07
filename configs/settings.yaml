@@ -1,0 +1,36 @@
+dataset:
+  parquet_path: "validation-00000-of-00001.parquet"
+  sample_size: 500
+  random_seed: 42
+  processed_dir: "data/processed"
+
+embedding:
+  model_name: "all-MiniLM-L6-v2"  # local sentence-transformers model
+  dimension: 384
+
+vector_store:
+  top_k: 5
+  faiss_index_path: "data/cache/faiss_index.bin"
+
+llm:
+  provider: "gemini"  # options: gemini, openai, mock
+  model_name: "gemini-3.8-flash"
+  temperature: 0.0
+  cache_dir: "data/cache/llm_cache"
+
+graph:
+  triple_cache_path: "data/cache/triples_cache.json"
+  graph_save_path: "data/cache/knowledge_graph.pkl"
+  similarity_threshold: 0.82  # entity deduplication threshold
+  max_neighbors_per_node: 10
+  traversal_hops: 2
+
+retrieval:
+  top_k_chunks: 5
+  vector_weight: 0.6
+  graph_weight: 0.4
+
+evaluation:
+  results_dir: "results"
+  ablation_hops: [1, 2]
+  ablation_entity_merging: [true, false]

@@ -1,0 +1,23 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Data & cache
+data/cache/*
+!data/cache/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+*.pkl
+*.bin
+
+# Environment variables
+.env
+
+# Streamlit
+.streamlit/
+
+# Results generated during runs
+results/*.json
+results/*.csv
+results/*.png
